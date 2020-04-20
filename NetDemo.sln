@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDemo", "NetDemo\NetDemo.csproj", "{F9F4A1B1-1590-4BA6-8161-F31D6A864DDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDemo.Polly", "NetDemo.Polly\NetDemo.Polly.csproj", "{99A1DB3B-29AA-42EC-B26C-B4B83BFD9610}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9F4A1B1-1590-4BA6-8161-F31D6A864DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F4A1B1-1590-4BA6-8161-F31D6A864DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F4A1B1-1590-4BA6-8161-F31D6A864DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F4A1B1-1590-4BA6-8161-F31D6A864DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A1DB3B-29AA-42EC-B26C-B4B83BFD9610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A1DB3B-29AA-42EC-B26C-B4B83BFD9610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A1DB3B-29AA-42EC-B26C-B4B83BFD9610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A1DB3B-29AA-42EC-B26C-B4B83BFD9610}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3230B515-8052-4ED2-A24C-16BA8253B050}
+	EndGlobalSection
+EndGlobal
