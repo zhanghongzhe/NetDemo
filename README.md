@@ -1,3 +1,7 @@
+# NetDemo.EFEvent
+- 源码：https://github.com/nopSolutions/nopCommerce
+- nopCommerce事件机制
+
 # NetDemo.Polly
 - 源码：https://github.com/App-vNext/Polly
 - 重试策略（Retry）
