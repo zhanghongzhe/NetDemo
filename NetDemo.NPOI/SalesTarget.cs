@@ -16,6 +16,7 @@ namespace NetDemo.NPOI
         private int _rowTitleCount = 3; //列头占用行数
         private string _normalKeyWord = "常规";
         private string _smithKeyWord = "史密斯";
+        private string _profitRate = "毛利率";
 
         public List<SalesTargetTeam> Get()
         {
@@ -233,9 +234,12 @@ namespace NetDemo.NPOI
                         {
                             var colLetter = this.ConvertToLetter(j + 1); //列号起始为1
                             if (colIndexs == null || colIndexs.Count == 0)
-                                cell.CellFormula = $"SUM({colLetter}{colIndexStart}:{colLetter}{colIndexEnd})";
+                                cell.CellFormula = $"SUM({colLetter}{colIndexStart}:{colLetter}{colIndexEnd})"; //对应团队合计，采用冒号分隔
                             else
-                                cell.CellFormula = $"SUM({string.Join(',', colIndexs.Select(o => colLetter + o))})";
+                                cell.CellFormula = $"SUM({string.Join(',', colIndexs.Select(o => colLetter + o))})"; //对于其他合计，采用逗号分隔
+
+                            if (colTitles[j] == this._profitRate)
+                                cell.CellFormula = $"{this.ConvertToLetter(j + 2)}{rowIndex}/{this.ConvertToLetter(j)}{rowIndex}"; //毛利采用毛利额/销售额
                         }
                         else
                         {
@@ -289,8 +293,7 @@ namespace NetDemo.NPOI
 
                                             arrProfitAmountIndexs.Add(colIndex);
                                             cell = row.CreateCell(colIndex); colIndex++;
-                                            if (salesTargetByTeam != null)
-                                                cell.SetCellValue(Convert.ToDouble(salesTargetByTeam.ProfitAmount));
+                                            cell.CellFormula = $"{this.ConvertToLetter(colIndex - 2) + rowIndex.ToString()}*{this.ConvertToLetter(colIndex - 1) + rowIndex.ToString()}";
 
                                             arrNewCustomerCountIndexs.Add(colIndex);
                                             cell = row.CreateCell(colIndex); colIndex++;
@@ -316,8 +319,7 @@ namespace NetDemo.NPOI
 
                                             arrProfitAmountIndexs.Add(colIndex);
                                             cell = row.CreateCell(colIndex); colIndex++;
-                                            if (salesTargetByTeam != null)
-                                                cell.SetCellValue(Convert.ToDouble(salesTargetByTeam.ProfitAmount));
+                                            cell.CellFormula = $"{this.ConvertToLetter(colIndex - 2) + rowIndex.ToString()}*{this.ConvertToLetter(colIndex - 1) + rowIndex.ToString()}";
                                         }
                                     }
                                     #endregion
@@ -360,6 +362,8 @@ namespace NetDemo.NPOI
                     var colLetter = this.ConvertToLetter(j + 1); //列号起始为1
                     cell = rowTotal.GetCell(j);
                     cell.CellFormula = $"SUM({string.Join(',', groupModel.RowIndexs.Select(o => colLetter + o))})";
+                    if (colTitles[j] == this._profitRate)
+                        cell.CellFormula = $"{this.ConvertToLetter(j + 2)}{rowTotal.RowNum + 1}/{this.ConvertToLetter(j)}{rowTotal.RowNum + 1}"; //毛利采用毛利额/销售额
                 }
                 #endregion
 
